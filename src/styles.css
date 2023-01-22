@@ -67,6 +67,12 @@ h1 {
   gap: 48px;
 }
 
+.message {
+  font-size: 50px;
+  margin: 5px auto;
+  font-weight: 700;
+}
+
 @media (max-width: 900px) {
   .main {
     grid-template-columns: 1fr;
@@ -147,6 +153,10 @@ h1 {
 
 .vote-buttons button:hover {
   background-color: #292524;
+}
+
+.vote-buttons button:disabled {
+  background-color: #44403c;
 }
 
 ul {
