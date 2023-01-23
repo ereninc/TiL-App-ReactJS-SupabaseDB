@@ -122,7 +122,7 @@ function Header(props) {
 }
 
 function Loader() {
-  return <p className="loadingMessage">Loading...</p>;
+  return <p className="loadingCube"></p>;
 }
 
 function isValidHttpUrl(string) {

@@ -8,7 +8,7 @@ body {
   background-color: #292524;
   color: #fafaf0;
   font-family: "Sono", sans-serif;
-  padding: 48px 64px;
+  padding: 48px 64px 0px;
   font-weight: 600;
 }
 
@@ -65,6 +65,12 @@ h1 {
   display: grid;
   grid-template-columns: 250px 1fr;
   gap: 48px;
+  height: calc(100vh - 48px - 68px - 40px);
+}
+
+section {
+  overflow: scroll;
+  padding-bottom: 40px;
 }
 
 .message {
@@ -96,7 +102,7 @@ h1 {
   background-color: #44403c;
   margin-bottom: 40px;
   padding: 16px 24px;
-  border: 1px solid white;
+  border: 2px solid rgb(165, 134, 134);
   letter-spacing: -1px;
 
   display: flex;
@@ -262,5 +268,83 @@ ul {
   body {
     padding: 48px 64px;
     transition: 0.5s;
+  }
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  #root {
+    padding: 24px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .fact-form {
+    padding: 16px;
+  }
+
+  .fact {
+    padding: 12px 16px;
+  }
+}
+
+.loadingCube {
+  margin: 150px auto;
+  --s: 25px;
+
+  --_d: calc(0.353 * var(--s));
+  width: calc(var(--s) + var(--_d));
+  aspect-ratio: 1;
+  display: flex;
+}
+.loadingCube:before,
+.loadingCube:after {
+  content: "";
+  flex: 1;
+  clip-path: polygon(
+    var(--_d) 0,
+    100% 0,
+    100% calc(100% - var(--_d)),
+    calc(100% - var(--_d)) 100%,
+    0 100%,
+    0 var(--_d)
+  );
+  background: conic-gradient(
+    from -90deg at calc(100% - var(--_d)) var(--_d),
+    #fff 135deg,
+    #666 0 270deg,
+    #aaa 0
+  );
+  animation: d5 1.2s infinite;
+}
+.loadingCube:before {
+  margin-right: calc(var(--_d) / -2 - 1px);
+}
+.loadingCube:after {
+  margin-left: calc(var(--_d) / -2 - 1px);
+  animation-delay: 0.6s;
+}
+@keyframes d5 {
+  0% {
+    transform: translateY(0);
+  }
+  16.67% {
+    transform: translateY(-10px);
+  }
+  33.33% {
+    transform: translateY(10px);
+  }
+  50%,
+  100% {
+    transform: translateY(0);
   }
 }
