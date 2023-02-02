@@ -88,7 +88,11 @@ function App() {
       />
 
       {showForm ? (
-        <NewFactForm setFacts={setFacts} setShowForm={setShowForm} />
+        <NewFactForm
+          setFacts={setFacts}
+          setShowForm={setShowForm}
+          setIsUploading={setIsUploading}
+        />
       ) : null}
 
       <main className="main">
